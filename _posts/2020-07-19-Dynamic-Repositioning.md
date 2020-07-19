@@ -1,5 +1,4 @@
-Dynamin Bike Repositioning
-==========================
+
 
 > Li, Yexin, Yu Zheng, and Qiang Yang. "Dynamic bike reposition: A spatio-temporal reinforcement learning approach." Proceedings of the 24th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining. 2018.
 
@@ -22,8 +21,9 @@ Dynamin Bike Repositioning
 - Inter-dependent inner-balance clustering algorithm -> cluster stations into groups
     - 2-step clustering algorithm
     - each cluster is inner-balanced and independent from the others.
-        1) individual station -> regions : more stable rent demand and transition patterns at each region 
-        2) regions -> groups : based on the inter-region transition -> each cluster is inner-balances and independext form the others
+    
+        1. individual station -> regions : more stable rent demand and transition patterns at each region 
+        2. regions -> groups : based on the inter-region transition -> each cluster is inner-balances and independext form the others
     - dividing the entire system into clusters -> largely reduce the problem complexity
         
 
