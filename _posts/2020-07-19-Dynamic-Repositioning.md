@@ -5,7 +5,7 @@
 ### Target : minimizing the customer loss
 
 - a user can rent or return a bike at a random station
-- as the bike usage in a city is very unbalanced -> empty stations without bikes | lacking available docks -> customer loss
+- as the bike usage in a city is very unbalanced -> empty stations without bikes OR lacking available docks -> customer loss
 - how to efficiently repositioning to minimize the customer loss in a long period.
 
 #### 3 Challenges 
