@@ -1,3 +1,10 @@
+---
+title: "Nvidia driver 및 Cuda 설치"
+date: 2020-07-25 15:26:28 -0400
+categories: Settings
+---
+
+
 ### Cuda 설치
 
 나중에 한번쯤은 다시 설치할 일이 있을거 같아서 메모해두는거..
