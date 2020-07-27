@@ -31,27 +31,31 @@ $ sudo apt-get install cuda-10-1
 # Reboot. Check that GPUs are visible using the command: nvidia-smi
 $ sudo reboot
 
-# Install development and runtime libraries (~4GB)
-$ sudo apt-get install --no-install-recommends \
-    cuda-10-1 \
-    libcudnn7=7.6.4.38-1+cuda10.1  \
-    libcudnn7-dev=7.6.4.38-1+cuda10.1
+$ sudo gedit ~/.profile
 
-# Install TensorRT. Requires that libcudnn7 is installed above.
-$ sudo apt-get install -y --no-install-recommends libnvinfer6=6.0.1-1+cuda10.1 \
-    libnvinfer-dev=6.0.1-1+cuda10.1 \
-    libnvinfer-plugin6=6.0.1-1+cuda10.1
+export PATH=/usr/local/cuda-10.1/bin:$PATH 
+export LD_LIBRARY_PATH=/usr/local/cuda-10.1/lib64:$LD_LIBRARY_PATH
+
+# https://developer.nvidia.com/rdp/cudnn-download 에서
+# cuDNN Library for Linux 눌러서 다운로드(tgz 파일)
+# 다운로드 받은 폴더로 이동하여 파일 압축풀기
+$ tar -zxvf cudnn-10.1-linux-x64-v7.6.5.32.tgz
+
+# cuda/include 폴더 이동 후 파일 복사
+$ cd cuda/include
+$ sudo cp cudnn.h /usr/local/cuda/include
+
+# ../lib64 폴더 이동 후 파일 복사
+$ cd ../lib64
+$ sudo cp libcudnn* /usr/local/cuda/lib64
+
+# 모두 설치가 되었다면 다운받은 sample로 MNIST를 돌려보아 test passed라고 나온다면 성공
+$ cd /usr/src/cudnn_samples_v7/mnistCUDNN/
+$ sudo make clean && sudo make
+$ ./mnistCUDNN
+
 
 ```
-GPU 확인
-
-```python
-
-import tensorflow as tf
-tf.test.is_gpu_available()
-
-```
-
 아나콘다 설치
  
 ```
@@ -61,3 +65,13 @@ $ bash Anaconda3-2019.10-Linux-x86_64.sh
 
 $ conda create -n py36 python=3.6
 ```
+
+GPU 확인
+
+```python
+
+import tensorflow as tf
+tf.test.is_gpu_available()
+
+```
+
